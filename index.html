@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="mystyle.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav
+      class="navbar fixed-top navbar-expand-lg navbar-dark"
+      style="background-color: #6c757e"
+    >
+      <div class="container d-flex">
+        <a href="#" class="navbar-brand mb-0 h1">IME PREZIME</a>
+        <button
+          class="navbar-toggler p-2 my-1 focus-ring"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+          aria-controls="navbarContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          style="background-color: #1bbc9c; --bs-focus-ring-color: white"
+        >
+          <span class="navbar-brand fs-6 me-0 ms-1" style="color: white"
+            >MENU</span
+          >
+          <span class="navbar-toggler-icon fs-6 me-1 my-1"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarContent"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="#portfolio" class="nav-link text-white fw-bold"
+                >PORTFOLIO</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="#about" class="nav-link text-white fw-bold">ABOUT</a>
+            </li>
+            <li class="nav-item">
+              <a href="#contact" class="nav-link text-white fw-bold">CONTACT</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <header
+      class="container-fluid mt-5 p-5 d-flex flex-column align-items-center"
+      style="background-color: #1bbc9c"
+    >
+      <img
+        class="img-fluid my-4"
+        src="Images/smiling.gif"
+        alt="Smiling avataar"
+        width="150"
+        height="auto"
+      />
+      <h1 class="text-white">IME PREZIME</h1>
+      <div class="d-flex align-items-center mb-3">
+        <div class="line-horisontal-white"></div>
+        <i class="fa fa-star" style="color: white; font-size: 1.5em"></i>
+        <div class="line-horisontal-white"></div>
+      </div>
+
+      <p class="text-white">Frontend Developer - Web Designer - Scrum Master</p>
+    </header>
+    <section
+      id="portfolio"
+      class="container py-5 px-5 d-flex flex-column align-items-center"
+    >
+      <h2 class="text-secondary">PORTFOLIO</h2>
+      <div class="d-flex align-items-center mb-3">
+        <div class="line-horisontal-dark"></div>
+        <i class="fa fa-star" style="color: #2d3e50; font-size: 1.5em"></i>
+        <div class="line-horisontal-dark"></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-6 p-3">
+          <div
+            type="button"
+            class="btn portfolio-btn p-0 rounded-3 position-relative"
+            data-bs-toggle="modal"
+            data-bs-target="#modal1"
+          >
+            <div class="overlay">
+              <i class="symbol fa fa-plus" aria-hidden="true"></i>
+            </div>
+            <img src="Images/image1.jpg" alt="" class="img-fluid rounded-3" />
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 p-3">
+          <div
+            type="button"
+            class="btn portfolio-btn p-0 rounded-3 position-relative"
+          >
+            <div class="overlay">
+              <i class="symbol fa fa-plus" aria-hidden="true"></i>
+            </div>
+            <img src="Images/image2.jpg" alt="" class="img-fluid rounded-3" />
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 p-3">
+          <div
+            type="button"
+            class="btn portfolio-btn p-0 rounded-3 position-relative"
+          >
+            <div class="overlay">
+              <i class="symbol fa fa-plus" aria-hidden="true"></i>
+            </div>
+            <img src="Images/image3.jpg" alt="" class="img-fluid rounded-3" />
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 p-3">
+          <div
+            type="button"
+            class="btn portfolio-btn p-0 rounded-3 position-relative"
+          >
+            <div class="overlay">
+              <i class="symbol fa fa-plus" aria-hidden="true"></i>
+            </div>
+            <img src="Images/image4.jpg" alt="" class="img-fluid rounded-3" />
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 p-3">
+          <div
+            type="button"
+            class="btn portfolio-btn p-0 rounded-3 position-relative"
+          >
+            <div class="overlay">
+              <i class="symbol fa fa-plus" aria-hidden="true"></i>
+            </div>
+            <img src="Images/image5.jpg" alt="" class="img-fluid rounded-3" />
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 p-3">
+          <div
+            type="button"
+            class="btn portfolio-btn p-0 rounded-3 position-relative"
+          >
+            <div class="overlay">
+              <i class="symbol fa fa-plus" aria-hidden="true"></i>
+            </div>
+            <img src="Images/react.png" alt="" class="img-fluid rounded-3" />
+          </div>
+        </div>
+      </div>
+      <div id="modal1" class="modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            <div class="modal-header border-bottom-0">
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div
+              class="modal-body py-0 px-3 d-flex flex-column align-items-center"
+            >
+              <h2 class="modal-title text-secondary">C#</h2>
+              <div class="d-flex align-items-center mb-3">
+                <div class="line-horisontal-dark"></div>
+                <i
+                  class="fa fa-star"
+                  style="color: #2d3e50; font-size: 1.5em"
+                ></i>
+                <div class="line-horisontal-dark"></div>
+              </div>
+              <img
+                src="Images/image1.jpg"
+                alt=""
+                class="img-fluid"
+                width="400"
+              />
+              <div
+                class="modal-body text-center mt-3 px-0"
+                style="max-width: 400px; font-size: 0.75rem"
+              >
+                C# is widely used for developing desktop applications, web
+                applications and web services. It is used in creating
+                applications of Microsoft at a large scale. C# is also used in
+                game development in Unity.
+              </div>
+            </div>
+            <div
+              class="modal-footer p-0 d-flex justify-content-center border-top-0"
+            >
+              <button
+                type="button"
+                class="btn btn-secondary mb-5"
+                data-bs-dismiss="modal"
+              >
+                <i class="fa fa-times" aria-hidden="true"></i>
+                Close Window
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      id="about"
+      class="container-fluid d-flex flex-column align-items-center"
+      style="background-color: #1bbc9c"
+    >
+      <h2 class="text-white mt-5">ABOUT</h2>
+      <div class="d-flex align-items-center mb-3">
+        <div class="line-horisontal-white"></div>
+        <i class="fa fa-star" style="color: white; font-size: 1.5em"></i>
+        <div class="line-horisontal-white"></div>
+      </div>
+
+      <div id="about_text" class="container mb-5">
+        <div class="row">
+          <div class="col-lg-6 mb-3 text-white">
+            Front-end web development, also known as client-side development is
+            the practice of producing HTML, CSS and JavaScript for a website or
+            Web Application so that a user can see and interact with them
+            directly. The challenge associated with front end development is
+            that the tools and techniques used to create the front end of a
+            website change constantly and so the developer needs to constantly
+            be aware of how the field is developing.
+          </div>
+          <div class="col-lg-6 text-white">
+            The objective of designing a site is to ensure that when the users
+            open up the site they see the information in a format that is easy
+            to read and relevant. This is further complicated by the fact that
+            users now use a large variety of devices with varying screen sizes
+            and resolutions thus forcing the designer to take into consideration
+            these aspects when designing the site. They need to ensure that
+            their site comes up correctly in different browsers...
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="container mt-5 d-flex flex-column align-items-center"
+      id="contact"
+    >
+      <h2 class="text-secondary">CONTACT ME</h2>
+      <div class="d-flex align-items-center mb-3">
+        <div class="line-horisontal-dark"></div>
+        <i class="fa fa-star" style="color: #2d3e50; font-size: 1.5em"></i>
+        <div class="line-horisontal-dark"></div>
+      </div>
+    </section>
+    <section class="container mt-2 mb-5 d-block">
+      <form action="" class="form-container mx-auto">
+        <div class="form-floating mt-2">
+          <input
+            type="text"
+            class="form-control focus-ring"
+            id="name_input"
+            placeholder="Ime"
+            maxlength="30"
+          />
+          <label for="name_input" class="form-label">Full name</label>
+        </div>
+        <div class="form-floating mt-2">
+          <input
+            type="email"
+            class="form-control focus-ring"
+            id="mail_input"
+            placeholder="some@mail"
+          />
+          <label for="mail_input" class="form-label">Email address</label>
+        </div>
+        <div class="form-floating mt-2">
+          <input
+            type="tel"
+            class="form-control focus-ring"
+            id="phone_input"
+            placeholder="000"
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}"
+            title="example: 021-123-45-67"
+          />
+          <label for="phone_input" class="form-label">Phone number</label>
+        </div>
+        <div class="form-floating mt-2">
+          <textarea
+            name=""
+            id="comment"
+            rows="5"
+            class="form-control focus-ring"
+            placeholder="comment"
+            style="height: 100%"
+          ></textarea>
+          <label for="comment" class="form-label">Comment</label>
+        </div>
+        <button type="submit" class="btn btn-secondary mt-2">Send</button>
+      </form>
+    </section>
+    <section class="container-fluid py-5" style="background-color: #2e3e51">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 text-white">
+            <h5 class="text-center">LOCATION</h5>
+            <p class="text-center mt-3 mb-0">SMARTINIT Novi Sad</p>
+            <p class="text-center">Serbia</p>
+          </div>
+          <div class="col-lg-4 text-white">
+            <h5 class="text-center">AROUND THE WEB</h5>
+            <div class="text-center my-3">
+              <a class="web-link mx-1" href="#">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a class="web-link mx-1" href="#">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a class="web-link mx-1" href="#">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </a>
+              <a class="web-link mx-1" href="#">
+                <i class="fa fa-dribbble" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-4 text-white">
+            <h5 class="text-center">ABOUT SMARTINIT</h5>
+            <p class="text-center mt-3 mb-0">
+              PanonIT Code Academy -> <a href="#">Start Course</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="bg-dark text-white pt-3 pb-1 text-center">
+      <p style="font-size: 0.7rem; background-color: #1a252f">
+        Copyright &copy; Ime Prezime 2024
+      </p>
+    </footer>
+    <script src="bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
