@@ -46,6 +46,25 @@
 .portfolio-btn:hover .overlay {
   opacity: 0.8;
 }
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: #1bbc9c;
+}
+.carousel:hover .portfolio-overlay {
+  opacity: 0.8;
+}
+.carousel:hover {
+  transition: 0.5s ease;
+  scale: 0.9;
+}
 .btn-secondary {
   background-color: #1bbc9c;
   border: none;
@@ -71,6 +90,13 @@
   color: #2e3e51;
   background-color: white;
 }
+.offer-text {
+  font-size: 0.7rem;
+}
+.rounded-circle {
+  max-width: 5rem;
+}
+
 @media (min-width: 992px) {
   #about_text {
     width: 50vw;
