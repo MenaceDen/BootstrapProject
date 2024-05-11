@@ -11,7 +11,7 @@
   <body>
     <nav
       class="navbar fixed-top navbar-expand-lg navbar-dark"
-      style="background-color: #6c757e"
+      style="background-color: var(--navbar-gray-color)"
     >
       <div class="container d-flex">
         <a href="#" class="navbar-brand mb-0 h1">IME PREZIME</a>
@@ -23,11 +23,12 @@
           aria-controls="navbarContent"
           aria-expanded="false"
           aria-label="Toggle navigation"
-          style="background-color: #1bbc9c; --bs-focus-ring-color: white"
+          style="
+            background-color: var(--main-green-color);
+            --bs-focus-ring-color: var(--main-white-color);
+          "
         >
-          <span class="navbar-brand fs-6 me-0 ms-1" style="color: white"
-            >MENU</span
-          >
+          <span class="navbar-brand fs-6 me-0 ms-1 text-white">MENU</span>
           <span class="navbar-toggler-icon fs-6 me-1 my-1"></span>
         </button>
         <div
@@ -52,7 +53,7 @@
     </nav>
     <header
       class="container-fluid mt-5 p-5 d-flex flex-column align-items-center"
-      style="background-color: #1bbc9c"
+      style="background-color: var(--main-green-color)"
     >
       <img
         class="img-fluid my-4"
@@ -64,11 +65,13 @@
       <h1 class="text-white">IME PREZIME</h1>
       <div class="d-flex align-items-center mb-3">
         <div class="line-horisontal-white"></div>
-        <i class="fa fa-star" style="color: white; font-size: 1.5em"></i>
+        <i class="fa fa-star text-light" style="font-size: 1.5em"></i>
         <div class="line-horisontal-white"></div>
       </div>
 
-      <p class="text-white">Frontend Developer - Web Designer - Scrum Master</p>
+      <p class="text-white text-center">
+        Frontend Developer - Web Designer - Scrum Master
+      </p>
     </header>
     <section
       id="portfolio"
@@ -77,7 +80,10 @@
       <h2 class="text-secondary">PORTFOLIO</h2>
       <div class="d-flex align-items-center mb-3">
         <div class="line-horisontal-dark"></div>
-        <i class="fa fa-star" style="color: #2d3e50; font-size: 1.5em"></i>
+        <i
+          class="fa fa-star"
+          style="color: var(--dark-line-color); font-size: 1.5em"
+        ></i>
         <div class="line-horisontal-dark"></div>
       </div>
       <div class="row">
@@ -169,7 +175,7 @@
                 <div class="line-horisontal-dark"></div>
                 <i
                   class="fa fa-star"
-                  style="color: #2d3e50; font-size: 1.5em"
+                  style="color: var(--dark-line-color); font-size: 1.5em"
                 ></i>
                 <div class="line-horisontal-dark"></div>
               </div>
@@ -208,12 +214,12 @@
     <section
       id="about"
       class="container-fluid d-flex flex-column align-items-center py-5"
-      style="background-color: #1bbc9c"
+      style="background-color: var(--main-green-color)"
     >
       <h2 class="text-white mt-5">ABOUT</h2>
       <div class="d-flex align-items-center mb-3">
         <div class="line-horisontal-white"></div>
-        <i class="fa fa-star" style="color: white; font-size: 1.5em"></i>
+        <i class="fa fa-star text-light" style="font-size: 1.5em"></i>
         <div class="line-horisontal-white"></div>
       </div>
 
@@ -247,7 +253,10 @@
       <h2 class="text-secondary mt-5">CONTACT ME</h2>
       <div class="d-flex align-items-center mb-3">
         <div class="line-horisontal-dark"></div>
-        <i class="fa fa-star" style="color: #2d3e50; font-size: 1.5em"></i>
+        <i
+          class="fa fa-star"
+          style="color: var(--dark-line-color); font-size: 1.5em"
+        ></i>
         <div class="line-horisontal-dark"></div>
       </div>
     </section>
@@ -297,7 +306,10 @@
         <button type="submit" class="btn btn-secondary mt-2">Send</button>
       </form>
     </section>
-    <section class="container-fluid py-5" style="background-color: #2e3e51">
+    <section
+      class="container-fluid py-5"
+      style="background-color: var(--web-link-color)"
+    >
       <div class="container">
         <div class="row">
           <div class="col-lg-4 text-white">
@@ -332,7 +344,7 @@
       </div>
     </section>
     <footer class="bg-dark text-white pt-3 pb-1 text-center">
-      <p style="font-size: 0.7rem; background-color: #1a252f">
+      <p style="font-size: 0.7rem; background-color: var(--main-footer-color)">
         Copyright &copy; Ime Prezime 2024
       </p>
     </footer>

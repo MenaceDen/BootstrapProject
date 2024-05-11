@@ -1,11 +1,21 @@
+:root {
+  --main-green-color: #1bbc9c;
+  --main-white-color: white;
+  --navbar-gray-color: #6c757e;
+  --dark-line-color: #2d3e50;
+  --btn-hover-color: hsl(168, 75%, 32%);
+  --main-focus-ring-color: rgba(27, 188, 156, 0.65);
+  --web-link-color: #2e3e51;
+  --main-footer-color: #1a252f;
+}
 .nav-link:hover {
-  color: #1bbc9c !important;
+  color: var(--main-green-color) !important;
 }
 .line-horisontal-white {
   width: 4.5rem;
   height: 2px;
-  background-color: white;
-  border: 1px solid white;
+  background-color: var(--main-white-color);
+  border: 1px solid var(--main-white-color);
   border-radius: 2px;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -13,8 +23,8 @@
 .line-horisontal-dark {
   width: 5rem;
   height: 2px;
-  background-color: #2d3e50;
-  border: 1px solid #2d3e50;
+  background-color: var(--dark-line-color);
+  border: 1px solid var(--dark-line-color);
   border-radius: 2px;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -29,12 +39,12 @@
   width: 100%;
   opacity: 0;
   transition: 0.5s ease;
-  background-color: #1bbc9c;
+  background-color: var(--main-green-color);
   border-radius: 7px;
 }
 .symbol {
   position: absolute;
-  color: white;
+  color: var(--main-white-color);
   font-size: 4rem;
   text-align: center;
   top: 50%;
@@ -56,7 +66,7 @@
   width: 100%;
   opacity: 0;
   transition: 0.5s ease;
-  background-color: #1bbc9c;
+  background-color: var(--main-green-color);
 }
 .carousel:hover .portfolio-overlay {
   opacity: 0.8;
@@ -66,29 +76,29 @@
   scale: 0.9;
 }
 .btn-secondary {
-  background-color: #1bbc9c;
+  background-color: var(--main-green-color);
   border: none;
   border-radius: 3px;
 }
 .btn-secondary:hover {
-  background-color: hsl(168, 75%, 32%);
+  background-color: var(--btn-hover-color);
 }
 .form-container .focus-ring {
-  --bs-focus-ring-color: rgba(27, 188, 156, 0.65);
+  --bs-focus-ring-color: var(--main-focus-ring-color);
 }
 .web-link {
-  color: white;
+  color: var(--main-white-color);
   text-decoration: none;
   align-content: center;
   display: inline-block;
-  border: 1px solid white;
+  border: 1px solid var(--main-white-color);
   border-radius: 3px;
   width: 40px;
   height: 32px;
 }
 .web-link:hover {
-  color: #2e3e51;
-  background-color: white;
+  color: var(--web-link-color);
+  background-color: var(--main-white-color);
 }
 .offer-text {
   font-size: 0.7rem;

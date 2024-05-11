@@ -11,7 +11,7 @@
   <body>
     <nav
       class="navbar fixed-top navbar-expand-lg navbar-dark"
-      style="background-color: #6c757e"
+      style="background-color: var(--navbar-gray-color)"
     >
       <div class="container d-flex">
         <a href="index.html" class="navbar-brand mb-0 h1">IME PREZIME</a>
@@ -23,11 +23,12 @@
           aria-controls="navbarContent"
           aria-expanded="false"
           aria-label="Toggle navigation"
-          style="background-color: #1bbc9c; --bs-focus-ring-color: white"
+          style="
+            background-color: var(--main-green-color);
+            --bs-focus-ring-color: var(--main-white-color);
+          "
         >
-          <span class="navbar-brand fs-6 me-0 ms-1" style="color: white"
-            >MENU</span
-          >
+          <span class="navbar-brand fs-6 me-0 ms-1 text-white">MENU</span>
           <span class="navbar-toggler-icon fs-6 me-1 my-1"></span>
         </button>
         <div
@@ -56,7 +57,7 @@
     </nav>
     <header
       class="container-fluid mt-5 py-5 text-white text-center"
-      style="background-color: #1bbc9c"
+      style="background-color: var(--main-green-color)"
     >
       <h6 class="text-secondary fs-6 mt-5">SERVICES</h6>
       <h2>What We Offer</h2>
@@ -120,7 +121,7 @@
     <!-- portfolio -->
     <section id="portfolio" class="container text-center py-5">
       <h6 class="text-secondary fs-6 mt-5">PORTFOLIO</h6>
-      <h2 style="color: #1bbc9c">Recent Projects</h2>
+      <h2 style="color: var(--main-green-color)">Recent Projects</h2>
       <div class="row mx-lg-5 mt-5 mx-md-5 text-light">
         <div class="col-lg-6 p-0">
           <div class="carousel">
@@ -174,7 +175,10 @@
       </div>
     </section>
     <!-- pre-footer links -->
-    <section class="container-fluid py-5" style="background-color: #2e3e51">
+    <section
+      class="container-fluid py-5"
+      style="background-color: var(--web-link-color)"
+    >
       <div class="container">
         <div class="row">
           <div class="col-lg-4 text-white">
@@ -209,7 +213,7 @@
       </div>
     </section>
     <footer class="bg-dark text-white pt-3 pb-1 text-center">
-      <p style="font-size: 0.7rem; background-color: #1a252f">
+      <p style="font-size: 0.7rem; background-color: var(--main-footer-color)">
         Copyright &copy; Ime Prezime 2024
       </p>
     </footer>
