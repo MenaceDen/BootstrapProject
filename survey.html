@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="mystyle.css" />
+    <title>Survey</title>
+  </head>
+  <body>
+    <nav
+      class="navbar fixed-top navbar-expand-lg navbar-dark"
+      style="background-color: var(--navbar-gray-color)"
+    >
+      <div class="container d-flex">
+        <a href="index.html" class="navbar-brand mb-0 h1">IME PREZIME</a>
+        <button
+          class="navbar-toggler p-2 my-1 focus-ring"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+          aria-controls="navbarContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          style="
+            background-color: var(--main-green-color);
+            --bs-focus-ring-color: var(--main-white-color);
+          "
+        >
+          <span class="navbar-brand fs-6 me-0 ms-1 text-white">MENU</span>
+          <span class="navbar-toggler-icon fs-6 me-1 my-1"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarContent"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="portfolio.html" class="nav-link text-white fw-bold"
+                >PORTFOLIO</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="index.html#about" class="nav-link text-white fw-bold"
+                >ABOUT</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="index.html#contact" class="nav-link text-white fw-bold"
+                >CONTACT</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="survey.html" class="nav-link text-white fw-bold"
+                >SURVEY</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <section
+      class="container-fluid vh-100 overflow-auto py-5 text-dark text-center"
+      style="background-color: var(--main-green-color)"
+    >
+      <div
+        class="container form-container mt-4 pt-5 position-relative"
+        id="main_container"
+      >
+        <!-- invitation page -->
+        <div id="invitation" class="container-fluid pe-4 position-absolute">
+          <h4 class="fst-italic">Portfolio</h4>
+          <h1>WONDERING IF TECH IS RIGHT FOR YOU?</h1>
+          <p class="fs-6">Take this 3-minute survey and find out.</p>
+          <button id="btn_start_survey" class="btn btn-dark rounded-0">
+            START
+          </button>
+        </div>
+        <!-- question number counter -->
+        <div
+          id="question_count_container"
+          class="container text-start"
+          style="visibility: hidden"
+        >
+          <h6
+            class="badge rounded-0 p-2 text-dark start-0"
+            style="background-color: var(--badge-background-color)"
+          >
+            Question <span class="counting"></span> of 5
+          </h6>
+        </div>
+
+        <!-- First question (name) -->
+        <div
+          id="first_question"
+          class="container-fluid pe-5 position-absolute text-start"
+          style="visibility: hidden"
+        >
+          <h3>Before we drive in, what's your name?</h3>
+          <p class="text-secondary">(First name's fine!)</p>
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control rounded-1 border-2 border-dark"
+              id="survey_name_input"
+              name="name"
+              placeholder="any"
+              maxlength="25"
+            />
+            <label for="survey_name_input" class="form-label"
+              >Type your answer here...</label
+            >
+          </div>
+          <button
+            id="btn_survey_name_next"
+            class="btn btn-dark rounded-0"
+            type="submit"
+          >
+            NEXT
+          </button>
+        </div>
+        <!-- Second question -->
+        <div
+          id="second_question"
+          class="container-fluid pe-5 position-absolute text-start"
+          style="visibility: hidden"
+        >
+          <h3>Where are you in your career?</h3>
+          <div
+            class="form-control d-flex p-2 mb-1 rounded-0 border-2 border-dark"
+            style="background-color: var(--badge-background-color)"
+          >
+            <input
+              class="form-check-input mx-2"
+              type="radio"
+              name="flexRadioDefault"
+              id="second_question_radio1"
+              onclick="hide()"
+            />
+            <label class="form-check-label ms-2" for="second_question_radio1">
+              I know what career I want, and I need to learn some skills
+            </label>
+          </div>
+          <div
+            class="form-control d-flex p-2 mb-1 rounded-0 border-2 border-dark"
+            style="background-color: var(--badge-background-color)"
+          >
+            <input
+              class="form-check-input mx-2"
+              type="radio"
+              name="flexRadioDefault"
+              id="second_question_radio2"
+              onclick="hide()"
+            />
+            <label class="form-check-label ms-2" for="second_question_radio2">
+              I like my career - or, at least, I don't HATE it - but I keep
+              wondering if there's something more out there.
+            </label>
+          </div>
+          <div
+            class="form-control d-flex p-2 mb-1 rounded-0 border-2 border-dark"
+            style="background-color: var(--badge-background-color)"
+          >
+            <input
+              class="form-check-input mx-2"
+              type="radio"
+              name="flexRadioDefault"
+              id="second_question_radio3"
+              onclick="hide()"
+            />
+            <label class="form-check-label ms-2" for="second_question_radio3">
+              I took a break from my career, and now !'m ready to get back into
+              the workforce.
+            </label>
+          </div>
+          <div
+            class="form-control d-flex p-2 mb-1 rounded-0 border-2 border-dark"
+            style="background-color: var(--badge-background-color)"
+          >
+            <input
+              class="form-check-input mx-2"
+              type="radio"
+              name="flexRadioDefault"
+              id="second_question_radio4"
+              onclick="hide()"
+            />
+            <label class="form-check-label ms-2" for="second_question_radio4">
+              I want to make a career change, but I'm also super busy.
+            </label>
+          </div>
+          <div
+            class="form-control d-flex p-2 mb-1 rounded-0 border-2 border-dark"
+            style="background-color: var(--badge-background-color)"
+          >
+            <input
+              class="form-check-input mx-2"
+              type="radio"
+              name="flexRadioDefault"
+              id="second_question_radio5"
+              onclick="hide()"
+            />
+            <label class="form-check-label ms-2" for="second_question_radio5">
+              I'm just starting out.
+            </label>
+          </div>
+          <div
+            class="form-control d-flex p-2 mb-1 rounded-0 border-2 border-dark"
+            style="background-color: var(--badge-background-color)"
+          >
+            <input
+              class="form-check-input mx-2"
+              type="radio"
+              name="flexRadioDefault"
+              id="second_question_radio6"
+              onclick="hide()"
+            />
+            <label class="form-check-label ms-2" for="second_question_radio6">
+              I'm burnt out from going into an office every day and ready to
+              make my own hours.
+            </label>
+          </div>
+          <div
+            class="form-control d-flex p-2 mb-1 rounded-0 border-2 border-dark"
+            style="background-color: var(--badge-background-color)"
+          >
+            <input
+              class="form-check-input mx-2"
+              type="radio"
+              name="flexRadioDefault"
+              id="second_question_radio7"
+              onclick="show()"
+            />
+            <label class="form-check-label ms-2" for="second_question_radio7">
+              Other (Please enter!)
+            </label>
+          </div>
+          <div id="area_for_text" class="form-floating" style="display: none">
+            <textarea
+              name=""
+              id="second_comment"
+              rows="1"
+              class="form-control focus-ring rounded-1 border-2 border-dark mb-2"
+              placeholder="comment"
+              style="height: 100%; resize: none"
+            ></textarea>
+            <label for="comment" class="form-label"
+              >Type your answer here...</label
+            >
+          </div>
+          <button
+            id="btn_survey_second_next"
+            class="btn btn-dark rounded-0 mt-1"
+            type="submit"
+          >
+            NEXT
+          </button>
+        </div>
+        <!-- Third question -->
+        <div
+          id="third_question"
+          class="container-fluid pe-5 position-absolute text-start"
+          style="visibility: hidden"
+        >
+          <h3>What's your biggest concern about learning tech skills?</h3>
+          <div
+            class="form-control d-flex p-2 mb-1 rounded-0 border-2 border-dark"
+            style="background-color: var(--badge-background-color)"
+          >
+            <input
+              class="form-check-input mx-2"
+              type="radio"
+              name="flexRadioThird"
+              id="third_question_radio1"
+            />
+            <label class="form-check-label ms-2" for="third_question_radio1">
+              Even if I learned the skills, with my weird resume, why would they
+              hire me over a computer science grad?
+            </label>
+          </div>
+          <div
+            class="form-control d-flex p-2 mb-1 rounded-0 border-2 border-dark"
+            style="background-color: var(--badge-background-color)"
+          >
+            <input
+              class="form-check-input mx-2"
+              type="radio"
+              name="flexRadioThird"
+              id="third_question_radio2"
+            />
+            <label class="form-check-label ms-2" for="third_question_radio2">
+              I don't have the time to learn new skills.
+            </label>
+          </div>
+          <div
+            class="form-control d-flex p-2 mb-1 rounded-0 border-2 border-dark"
+            style="background-color: var(--badge-background-color)"
+          >
+            <input
+              class="form-check-input mx-2"
+              type="radio"
+              name="flexRadioThird"
+              id="third_question_radio3"
+            />
+            <label class="form-check-label ms-2" for="third_question_radio3">
+              I dream of a remote job - but do those jobs REALLY exist for, you
+              know, REAL people like me?
+            </label>
+          </div>
+          <div
+            class="form-control d-flex p-2 mb-1 rounded-0 border-2 border-dark"
+            style="background-color: var(--badge-background-color)"
+          >
+            <input
+              class="form-check-input mx-2"
+              type="radio"
+              name="flexRadioThird"
+              id="third_question_radio4"
+            />
+            <label class="form-check-label ms-2" for="third_question_radio4">
+              It's too late in my career/life to make this big of a change.
+            </label>
+          </div>
+          <div
+            class="form-control d-flex p-2 mb-1 rounded-0 border-2 border-dark"
+            style="background-color: var(--badge-background-color)"
+          >
+            <input
+              class="form-check-input mx-2"
+              type="radio"
+              name="flexRadioThird"
+              id="third_question_radio5"
+            />
+            <label class="form-check-label ms-2" for="third_question_radio5">
+              Learning tech skills is expensive and I'm on a tight budget - I'm
+              not sure it's worth it.
+            </label>
+          </div>
+          <div
+            class="form-control d-flex p-2 mb-1 rounded-0 border-2 border-dark"
+            style="background-color: var(--badge-background-color)"
+          >
+            <input
+              class="form-check-input mx-2"
+              type="radio"
+              name="flexRadioThird"
+              id="third_question_radio6"
+            />
+            <label class="form-check-label ms-2" for="third_question_radio6">
+              My career is okay and learning tech skills is expensive - why
+              should I rock the boat?
+            </label>
+          </div>
+
+          <button
+            id="btn_survey_third_next"
+            class="btn btn-dark rounded-0 mt-1"
+            type="submit"
+          >
+            NEXT
+          </button>
+        </div>
+        <!-- Fourth question -->
+        <div
+          id="fourth_question"
+          class="container-fluid pe-5 position-absolute text-start"
+          style="visibility: hidden"
+        >
+          <h3>
+            Picture the perfect workplace for you. <br />
+            What do you see?
+          </h3>
+          <div
+            class="form-control d-flex p-2 mb-1 rounded-0 border-2 border-dark"
+            style="background-color: var(--badge-background-color)"
+          >
+            <input
+              class="form-check-input mx-2"
+              type="radio"
+              name="flexRadioFourth"
+              id="fourth_question_radio1"
+            />
+            <label class="form-check-label ms-2" for="fourth_question_radio1">
+              A bustling agency where I'm surrounded by incredible creative
+              talent.
+            </label>
+          </div>
+          <div
+            class="form-control d-flex p-2 mb-1 rounded-0 border-2 border-dark"
+            style="background-color: var(--badge-background-color)"
+          >
+            <input
+              class="form-check-input mx-2"
+              type="radio"
+              name="flexRadioFourth"
+              id="fourth_question_radio2"
+            />
+            <label class="form-check-label ms-2" for="fourth_question_radio2">
+              A collaborative environment where i'm LEADING the team.
+            </label>
+          </div>
+          <div
+            class="form-control d-flex p-2 mb-1 rounded-0 border-2 border-dark"
+            style="background-color: var(--badge-background-color)"
+          >
+            <input
+              class="form-check-input mx-2"
+              type="radio"
+              name="flexRadioFourth"
+              id="fourth_question_radio3"
+            />
+            <label class="form-check-label ms-2" for="fourth_question_radio3">
+              A collaborative environment where I'm a full-time member of a team
+              working shoulder-to-shoulder with fun, experienced team members.
+            </label>
+          </div>
+          <div
+            class="form-control d-flex p-2 mb-1 rounded-0 border-2 border-dark"
+            style="background-color: var(--badge-background-color)"
+          >
+            <input
+              class="form-check-input mx-2"
+              type="radio"
+              name="flexRadioFourth"
+              id="fourth_question_radio4"
+            />
+            <label class="form-check-label ms-2" for="fourth_question_radio4">
+              A coworking spot! I work with my team sometimes in-person and then
+              have the freedom to finish my work around my busy scedule.
+            </label>
+          </div>
+          <div
+            class="form-control d-flex p-2 mb-1 rounded-0 border-2 border-dark"
+            style="background-color: var(--badge-background-color)"
+          >
+            <input
+              class="form-check-input mx-2"
+              type="radio"
+              name="flexRadioFourth"
+              id="fourth_question_radio5"
+            />
+            <label class="form-check-label ms-2" for="fourth_question_radio5">
+              A video conference with coworkers on my screen... and the beach
+              behind it.
+            </label>
+          </div>
+          <div
+            class="form-control d-flex p-2 mb-1 rounded-0 border-2 border-dark"
+            style="background-color: var(--badge-background-color)"
+          >
+            <input
+              class="form-check-input mx-2"
+              type="radio"
+              name="flexRadioFourth"
+              id="fourth_question_radio6"
+            />
+            <label class="form-check-label ms-2" for="fourth_question_radio6">
+              Work at home in the morning, with time for kids' soccer practice
+              in the afternoon.
+            </label>
+          </div>
+
+          <button
+            id="btn_survey_fourth_next"
+            class="btn btn-dark rounded-0 mt-1"
+            type="submit"
+          >
+            NEXT
+          </button>
+        </div>
+        <!-- Fifth question -->
+        <div
+          id="fifth_question"
+          class="container-fluid pe-5 position-absolute text-start"
+          style="visibility: hidden"
+        >
+          <h3>Just one more thing! How much you like this survey?</h3>
+          <p class="text-secondary">We hope to think you'll like it!</p>
+          <label for="survey_range" class="form-label">1-5</label>
+          <input
+            type="range"
+            class="form-range"
+            min="1"
+            max="5"
+            id="survey_range"
+          />
+          <button
+            id="btn_survey_fifth_end"
+            class="btn btn-dark rounded-0 mt-1"
+            type="submit"
+          >
+            SUBMIT
+          </button>
+        </div>
+        <!-- The end -->
+      </div>
+    </section>
+    <script>
+      function show() {
+        const textArea = document.getElementById("area_for_text");
+        textArea.style.display = "block";
+      }
+      function hide() {
+        const textArea = document.getElementById("area_for_text");
+        textArea.style.display = "none";
+      }
+    </script>
+    <script src="bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="myScript.js"></script>
+  </body>
+</html>
