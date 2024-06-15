@@ -88,7 +88,7 @@
     >
       <div class="row">
         <div class="col-12">
-          <div class="table-responsive">
+          <div id="main_table_container" class="table-responsive">
             <table
               id="courses-table"
               class="table table-striped table-hover table-bordered"
@@ -105,6 +105,35 @@
               </thead>
               <tbody></tbody>
             </table>
+          </div>
+          <!-- reservations table -->
+          <div id="reservations_table_container" class="table-responsive">
+            <table
+              id="reservations-table"
+              class="table table-striped table-hover table-bordered"
+            >
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Surname</th>
+                  <th>Email</th>
+                  <th>Course</th>
+                  <th>Price</th>
+                  <th>Notes</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+            <p>Total: <span id="calculation"></span></p>
+          </div>
+          <div class="d-flex justify-content-end my-3">
+            <button
+              class="btn course-btn ms-auto me-0 border-light px-5"
+              id="btn_toggle"
+              onclick="toggleTables()"
+            ></button>
           </div>
         </div>
       </div>
@@ -178,7 +207,7 @@
                 <input
                   id="name"
                   type="text"
-                  name="name"
+                  name="courseName"
                   class="form-control"
                   readonly
                 />

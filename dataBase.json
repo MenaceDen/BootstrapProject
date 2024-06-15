@@ -49,5 +49,24 @@
       "details": "Kurs Automatsko testiranje softvera je namenjen polaznicima koji žele da steknu teorijska i praktična znanja iz oblasti automatskog testiranja Web ili Desktop aplikacija. Kurs je koncipiran tako da ga mogu pratiti kako početnici u oblasti testiranja softvera, tako i oni koji već imaju predznanje iz ove oblasti, kao na primer polaznici koji su završili naš kurs Manuelno testiranje softvera."
     }
   ],
-  "reservations": []
+  "reservations": [
+    {
+      "id": "",
+      "courseName": "Automatsko testiranje softvera",
+      "price": "250$",
+      "name": "Sasa",
+      "surname": "Sasic",
+      "email": "posta@neradi",
+      "comment": "commentos"
+    },
+    {
+      "id": "",
+      "courseName": "Web programiranje-Backend",
+      "price": "350$",
+      "name": "Pera",
+      "surname": "Perovic",
+      "email": "pera@mail.com",
+      "comment": "nepera"
+    }
+  ]
 }
