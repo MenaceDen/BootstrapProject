@@ -1,6 +1,10 @@
+var json = {};
+let reservationId;
+let reservationIdArray = [];
 $(document).ready(function () {
   loadCourses();
-  $("#reservations_table_container").toggle();
+  getId();
+  //$("#reservations_table_container").toggle();
 
   document.getElementById("forma").addEventListener("submit", function (event) {
     event.preventDefault();
@@ -19,7 +23,7 @@ function loadCourses() {
     $("#courses-table tbody").empty();
     $.each(data, function (i, element) {
       $("#courses-table tbody").append(
-        `<tr><td>${element.name}</td><td>${element.date}</td><td>${element.duration}</td><td>${element.price}</td><td><button id="${element.id}_details" class="btn course-btn border-success" onclick="showDetails(${element.id})">View Details</button></td><td><button id="${element.id}_reservation" class="btn course-btn border-success" onclick="makeReservation(${element.id}, event)">Make reservation</button></td></tr>`
+        `<tr><td>${element.name}</td><td>${element.date}</td><td>${element.duration}</td><td>${element.price}</td><td><button id="${element.id}_details" class="btn course-btn border-success px-lg-5" onclick="showDetails(${element.id})">View Details</button></td><td><button id="${element.id}_reservation" class="btn course-btn border-success px-lg-5" onclick="makeReservation(${element.id}, event)">Make reservation</button></td></tr>`
       );
     });
     $("#courses-table th").css({
@@ -55,9 +59,78 @@ function makeReservation(id, event) {
   );
   inputModal.show();
 }
+
+function editReservation(element_id, event) {
+  let getRequest = $.ajax({
+    type: "GET",
+    url: "http://localhost:3000/reservations/" + element_id,
+  });
+
+  getRequest.done(function (data) {
+    $("#modal2").modal("toggle");
+    $(".modal-title").text(`Izmena rezervacije`);
+    //setFormValidation();
+
+    Object.keys(data).forEach((key) => {
+      $(`input[name="${key}"]`).val(data[key]);
+      $(`textarea[name="${key}"]`).val(data[key]);
+    });
+  });
+
+  getRequest.fail(function (err) {
+    alert(err.statusText);
+  });
+}
+function deleteReservation(element_id, event) {
+  $.ajax({
+    url: "http://localhost:3000/reservations/" + element_id,
+    type: "DELETE",
+    dataType: "json",
+    success: function () {
+      $(event.target).parent().parent().remove();
+    },
+    error: function () {
+      alert("Neuspelo brisanje");
+    },
+  });
+}
+function getId() {
+  //calculates the next ID upon the highest existing id in database, or sets initial "1"
+
+  let getDataBase = $.ajax({
+    type: "GET",
+    url: "http://localhost:3000/reservations",
+  });
+  getDataBase.done(function (data) {
+    $.each(data, function (i, element) {
+      reservationIdArray.push(element.id);
+    });
+    if (reservationIdArray.length > 0) {
+      reservationId = findMax(reservationIdArray) + 1;
+      function findMax(arr) {
+        return Math.max.apply(null, arr);
+      }
+    } else {
+      reservationId = 1;
+    }
+  });
+  getDataBase.fail(function (err) {
+    alert(err.statusText);
+  });
+}
+function convertToJson(dataToConvert) {
+  var array = jQuery(dataToConvert).serializeArray();
+  array.shift(); //removes form's id
+  array.unshift({ name: "id", value: `${reservationId}` }); //adds normal number id instead of weird Json-Server's id like "b2f8"
+  jQuery.each(array, function () {
+    json[this.name] = this.value || "";
+  });
+  reservationId++;
+  return json;
+}
 function manageReservations(event) {
   let formData = new FormData(event.target);
-  //let jsonToSend = convertToJson(event.target);
+  let jsonToSend = convertToJson(event.target);
   //if ($("#forma").valid()) {
   if (event.target) {
     let reservation = Object.fromEntries(formData);
@@ -81,7 +154,7 @@ function manageReservations(event) {
         url: "http://localhost:3000/reservations",
         type: "POST",
         dataType: "json",
-        data: JSON.stringify(reservation),
+        data: JSON.stringify(jsonToSend),
         success: function (element) {
           loadCourses();
           $("#modalUnos").modal("toggle");
@@ -105,7 +178,7 @@ function loadReservations() {
     $("#employee-table tbody").empty();
     let prices = [];
     $.each(data, function (i, element) {
-      prices.push(element.price);
+      prices.push(parseInt(element.price));
       $("#reservations-table tbody").append(`<tr>
         <td>${element.name}</td>
         <td>${element.surname}</td>
@@ -114,15 +187,16 @@ function loadReservations() {
         <td>${element.price}</td>
         <td>${element.comment}</td>
         <td>
-            <button id="${element.id}_edit" class="btn btn-warning" onclick="editEmployee(${element.id}, event)">Izmena</button>
+            <button id="${element.id}_edit" class="btn btn-warning" onclick="editReservation(${element.id}, event)">Izmena</button>
         </td>
         <td>
-            <button id="${element.id}_delete" class="btn btn-danger" onclick="deleteEmployee(${element.id}, event)">Obrisi</button>
+            <button id="${element.id}_delete" class="btn btn-danger" onclick="deleteReservation(${element.id}, event)">Obrisi</button>
         </td>
         </tr>`);
     });
     let pricesSum = prices.reduce(function (total, num) {
-      return parseInt(total) + parseInt(num);
+      //return parseInt(total) + parseInt(num);
+      return total + num;
     });
     $("#calculation").text(`${pricesSum}$`);
   });
