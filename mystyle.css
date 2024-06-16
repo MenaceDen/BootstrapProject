@@ -9,6 +9,7 @@
   --main-footer-color: #1a252f;
   --badge-background-color: rgba(255, 255, 255, 0.5);
   --courses-background-color: #4c8b95;
+  --courses-button-gray: #6b767d;
 }
 .nav-link:hover {
   color: var(--main-green-color) !important;
@@ -111,6 +112,7 @@
 .course-btn:hover {
   background-color: var(--main-green-color);
 }
+
 @media (min-width: 992px) {
   #about_text {
     width: 50vw;

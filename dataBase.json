@@ -58,6 +58,15 @@
       "surname": "Stavka",
       "email": "prva@mail.com",
       "comment": "Ovo je prva"
+    },
+    {
+      "id": "2",
+      "courseName": "Manuelno testiranje softvera",
+      "price": "250$",
+      "name": "Druga",
+      "surname": "Instanca",
+      "email": "druga@mail",
+      "comment": "Ovo je druga"
     }
   ]
 }

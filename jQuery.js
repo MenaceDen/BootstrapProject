@@ -1,18 +1,19 @@
-var json = {};
-let reservationId;
-let reservationIdArray = [];
 $(document).ready(function () {
   loadCourses();
   getId();
-  //$("#reservations_table_container").toggle();
-
+  $("#reservations_table_container").toggle();
   document.getElementById("forma").addEventListener("submit", function (event) {
     event.preventDefault();
     manageReservations(event);
   });
 });
-let btnText = "View Reservations";
 
+loadReservations();
+var json = {};
+let reservationId;
+let reservationIdArray = [];
+let isToggled = false;
+let btnText = "View Reservations";
 $("#btn_toggle").text(btnText);
 function loadCourses() {
   let getCourses = $.ajax({
@@ -23,14 +24,14 @@ function loadCourses() {
     $("#courses-table tbody").empty();
     $.each(data, function (i, element) {
       $("#courses-table tbody").append(
-        `<tr><td>${element.name}</td><td>${element.date}</td><td>${element.duration}</td><td>${element.price}</td><td><button id="${element.id}_details" class="btn course-btn border-success px-lg-5" onclick="showDetails(${element.id})">View Details</button></td><td><button id="${element.id}_reservation" class="btn course-btn border-success px-lg-5" onclick="makeReservation(${element.id}, event)">Make reservation</button></td></tr>`
+        `<tr><td>${element.name}</td><td>${element.date}</td><td class="text-start">${element.duration}</td><td class="text-start">${element.price}</td><td><button id="${element.id}_details" class="btn course-btn border-success px-lg-5" onclick="showDetails(${element.id})">View Details</button></td><td><button id="${element.id}_reservation" class="btn course-btn border-success px-lg-5" onclick="makeReservation(${element.id}, event)">Make reservation</button></td></tr>`
       );
     });
     $("#courses-table th").css({
       "background-color": "var(--courses-background-color)",
       "border-color": "var(--courses-background-color)",
     });
-    $("#courses-table").dataTable();
+    $("#courses-table").dataTable(); //{responsive:true} makes problems with ID
   });
   getCourses.fail(function (err) {
     alert(err.statusText);
@@ -46,10 +47,11 @@ function showDetails(id) {
   });
   detailsModal.show();
 }
-function makeReservation(id, event) {
+function makeReservation(id) {
   var inputModal = new bootstrap.Modal(document.getElementById("modal2"), {
     keyboard: false,
   });
+  setFormValidation();
   let preloadData = $.get(
     `http://localhost:3000/courses/${id}`,
     function (data) {
@@ -69,7 +71,7 @@ function editReservation(element_id, event) {
   getRequest.done(function (data) {
     $("#modal2").modal("toggle");
     $(".modal-title").text(`Izmena rezervacije`);
-    //setFormValidation();
+    setFormValidation();
 
     Object.keys(data).forEach((key) => {
       $(`input[name="${key}"]`).val(data[key]);
@@ -96,7 +98,6 @@ function deleteReservation(element_id, event) {
 }
 function getId() {
   //calculates the next ID upon the highest existing id in database, or sets initial "1"
-
   let getDataBase = $.ajax({
     type: "GET",
     url: "http://localhost:3000/reservations",
@@ -128,11 +129,39 @@ function convertToJson(dataToConvert) {
   reservationId++;
   return json;
 }
+function setFormValidation() {
+  $("#forma").trigger("reset");
+  $("#forma").validate({
+    rules: {
+      name: {
+        required: true,
+        minlength: 3,
+      },
+      surname: {
+        required: true,
+        minlength: 3,
+      },
+      email: "required",
+      comment: "required",
+    },
+    messages: {
+      name: {
+        required: "Unesite vase Ime",
+        minlength: "Ime mora imati bar 3 karaktera",
+      },
+      surname: {
+        required: "Unesite vase prezime",
+        minlength: "Prezime mora imati bar 3 karaktera",
+      },
+      email: "Unesite validan email",
+      comment: "Unesite komentar",
+    },
+  });
+}
 function manageReservations(event) {
   let formData = new FormData(event.target);
   let jsonToSend = convertToJson(event.target);
-  //if ($("#forma").valid()) {
-  if (event.target) {
+  if ($("#forma").valid()) {
     let reservation = Object.fromEntries(formData);
     let isEdit = reservation.id;
     if (isEdit) {
@@ -187,15 +216,14 @@ function loadReservations() {
         <td>${element.price}</td>
         <td>${element.comment}</td>
         <td>
-            <button id="${element.id}_edit" class="btn btn-warning" onclick="editReservation(${element.id}, event)">Izmena</button>
+            <button id="${element.id}_edit" class="btn course-btn border-success px-lg-5" onclick="editReservation(${element.id}, event)">Izmena</button>
         </td>
         <td>
-            <button id="${element.id}_delete" class="btn btn-danger" onclick="deleteReservation(${element.id}, event)">Obrisi</button>
+            <button id="${element.id}_delete" class="btn course-btn border-success px-lg-5" onclick="deleteReservation(${element.id}, event)">Obrisi</button>
         </td>
         </tr>`);
     });
     let pricesSum = prices.reduce(function (total, num) {
-      //return parseInt(total) + parseInt(num);
       return total + num;
     });
     $("#calculation").text(`${pricesSum}$`);
@@ -206,9 +234,8 @@ function loadReservations() {
   });
 }
 function toggleTables() {
-  loadReservations();
   if (btnText === "View Reservations") {
-    btnText = "Back to Courses";
+    btnText = "Back to courses";
   } else {
     btnText = "View Reservations";
   }
