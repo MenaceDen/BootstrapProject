@@ -67,6 +67,24 @@
       "surname": "Instanca",
       "email": "druga@mail",
       "comment": "Ovo je druga"
+    },
+    {
+      "id": "4",
+      "courseName": "Osnove programiranja",
+      "price": "250$",
+      "name": "Probni",
+      "surname": "Unos",
+      "email": "proba@mail",
+      "comment": "Proba prosla"
+    },
+    {
+      "id": "5",
+      "courseName": "Osnove programiranja",
+      "price": "250$",
+      "name": "After",
+      "surname": "Errorfix",
+      "email": "after@fix",
+      "comment": "fixed really"
     }
   ]
 }

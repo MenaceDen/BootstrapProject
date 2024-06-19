@@ -186,7 +186,7 @@ function manageReservations(event) {
         data: JSON.stringify(jsonToSend),
         success: function (element) {
           loadCourses();
-          $("#modalUnos").modal("toggle");
+          $("#modal2").modal("toggle"); //error fixed
         },
         error: function () {
           alert("Neuspelo dodavanje");
@@ -204,7 +204,7 @@ function loadReservations() {
   });
 
   getRequest.done(function (data) {
-    $("#employee-table tbody").empty();
+    $("#reservations-table tbody").empty(); //error fixed
     let prices = [];
     $.each(data, function (i, element) {
       prices.push(parseInt(element.price));
